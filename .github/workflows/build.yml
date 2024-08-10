@@ -26,7 +26,7 @@ jobs:
         git config --local user.name "HiteshDatt"
         git config --local user.email "hdk.hitesh26@gmail.com"
         git add .
-        git commit -m "Build updated" || echo "No changes to commit"
+        git commit -m "Build updated [skip ci]" || echo "No changes to commit"
 
     - name: Push changes
       uses: ad-m/github-push-action@v0.6.0

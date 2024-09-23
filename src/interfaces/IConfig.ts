@@ -20,6 +20,7 @@ export interface ICustomComponents {
   userAvatar?: (props?: any) => ReactElement;
   userChatMessage?: (props?: any) => ReactElement;
   inputMessage?: (props?: any) => ReactElement;
+  botChatMessageHeader?: (props?: any) => ReactElement;
 }
 
 export interface ICustomMessage {

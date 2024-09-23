@@ -44,13 +44,13 @@ const ChatbotMessage = ({
       timeoutId = setTimeout(() => {
         const newMessages = [...messages].map(message => {
           if (message.id === id) {
-            return {...message, loading: false, delay: undefined};
+            return { ...message, loading: false, delay: undefined };
           }
 
           return message;
         });
 
-        setState((state: any) => ({...state, messages: newMessages}));
+        setState((state: any) => ({ ...state, messages: newMessages }));
       }, defaultDisableTime);
     };
 
@@ -103,6 +103,11 @@ const ChatbotMessage = ({
                 className="react-chatbot-kit-chat-bot-message"
                 style={chatBoxCustomStyles}
               >
+                <ConditionallyRender
+                  condition={!!customComponents?.botChatMessageHeader}
+                  show={<span className="react-chatbot-kit-chat-bot-message-header">{callIfExists(customComponents?.botChatMessageHeader)}</span>}
+                  elseShow={<></>}
+                />
                 <ConditionallyRender
                   condition={loading}
                   show={<Loader />}

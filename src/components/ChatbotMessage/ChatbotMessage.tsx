@@ -18,6 +18,7 @@ interface IChatbotMessageProps {
   setState?: React.Dispatch<React.SetStateAction<any>>;
   customComponents?: ICustomComponents;
   customStyles: { backgroundColor: string };
+  state?: any;
 }
 const ChatbotMessage = ({
   message,
@@ -29,6 +30,7 @@ const ChatbotMessage = ({
   customStyles,
   delay,
   id,
+  state,
 }: IChatbotMessageProps) => {
   const [show, toggleShow] = useState(false);
 
@@ -105,7 +107,10 @@ const ChatbotMessage = ({
               >
                 <ConditionallyRender
                   condition={!!customComponents?.botChatMessageHeader}
-                  show={<span className="react-chatbot-kit-chat-bot-message-header">{callIfExists(customComponents?.botChatMessageHeader)}</span>}
+                  show={<span className="react-chatbot-kit-chat-bot-message-header">{callIfExists(customComponents?.botChatMessageHeader, {
+                    message,
+                    state
+                  })}</span>}
                   elseShow={<></>}
                 />
                 <ConditionallyRender

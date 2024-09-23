@@ -13,6 +13,7 @@ interface IChatbotMessageProps {
     customStyles: {
         backgroundColor: string;
     };
+    state?: any;
 }
-declare const ChatbotMessage: ({ message, withAvatar, loading, messages, customComponents, setState, customStyles, delay, id, }: IChatbotMessageProps) => JSX.Element;
+declare const ChatbotMessage: ({ message, withAvatar, loading, messages, customComponents, setState, customStyles, delay, id, state, }: IChatbotMessageProps) => JSX.Element;
 export default ChatbotMessage;
